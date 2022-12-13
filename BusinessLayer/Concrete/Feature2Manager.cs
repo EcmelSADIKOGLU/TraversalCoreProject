@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,6 +27,11 @@ namespace BusinessLayer.Concrete
         public List<Feature2> TGetList()
         {
             return _feature2DAL.GetList();
+        }
+
+        public List<Feature2> TGetList(Expression<Func<Feature2, bool>> filter)
+        {
+            return _feature2DAL.GetList(filter);
         }
 
         public Feature2 TGetListByID(int id)

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,6 +29,11 @@ namespace DataAccessLayer.Repository
         public List<T> GetList()
         {
             return _object.ToList();
+        }
+
+        public List<T> GetList(Expression<Func<T, bool>> filter)
+        {
+            return _object.Where(filter).ToList();
         }
 
         public T GetListByID(int id)

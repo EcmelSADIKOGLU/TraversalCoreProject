@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,6 +27,11 @@ namespace BusinessLayer.Concrete
         public List<Testimonial> TGetList()
         {
             return _testimonialDAL.GetList();
+        }
+
+        public List<Testimonial> TGetList(Expression<Func<Testimonial, bool>> filter)
+        {
+            return _testimonialDAL.GetList(filter);
         }
 
         public Testimonial TGetListByID(int id)

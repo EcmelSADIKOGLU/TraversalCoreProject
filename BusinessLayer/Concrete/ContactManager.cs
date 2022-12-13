@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,6 +27,11 @@ namespace BusinessLayer.Concrete
         public List<Contact> TGetList()
         {
             return _contactDAL.GetList();
+        }
+
+        public List<Contact> TGetList(Expression<Func<Contact, bool>> filter)
+        {
+            return _contactDAL.GetList(filter);
         }
 
         public Contact TGetListByID(int id)
