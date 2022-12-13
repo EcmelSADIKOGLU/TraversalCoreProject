@@ -37,7 +37,7 @@ namespace DataAccessLayer.Repository
 
         public void Insert(T entity)
         {
-             c.Add(entity);
+            c.Add(entity);
             c.SaveChanges();
         }
 
